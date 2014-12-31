@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<style type="text/css">
+			.span-color{
+				color: #ff0000;
+			}
+		</style>
 	</head>
 	<body><!-- repeat-y / repeat-x 
 		 style="background:#ff0000 url(images/apple.jpeg) repeat"
@@ -10,18 +15,18 @@
 		<table style="border-spacing:5px;border: 2px solid">
 			<tr>
 				<td width="150px;" style="color:#ff00ff">
-					First Name*
+					First Name<span class="span-color"> *</span>
 				</td>
 				<td>
 					<input style="border:#ff0000 2px solid; color:#ff00ff">
 				</td>
-				<td style="padding-left:10px">Last Name*</td>
+				<td style="padding-left:10px">Last Name<span class="span-color"> *</span></td>
 				<td><input></td>
 				<td>5th Column</td>
 			</tr>
 			<tr>
 				<td>
-					Email*
+					Email<span class="span-color"> *</span>
 				</td>
 				<td>
 					<input>
@@ -29,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>
-					Password*
+					Password<span class="span-color"> *</span>
 				</td>
 				<td>
 					<input>
