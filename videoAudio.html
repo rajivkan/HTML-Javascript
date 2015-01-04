@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<video width="320" height="240" controls>
+		 <source src="data/echo-hereweare.mp4" type="video/mp4">
+		  Your browser does not support the video tag.
+	</video>
+
+	<br><!-- 
+	
+
+	<br>
+	<audio autoplay controls>
+		<source src="data/AudioTest.ogg" type="audio/ogg">
+	</audio> -->
+	<table>
+		<tr>
+			<td style="width:250px">
+				<table width="100%">
+					<tr>
+						<td>
+							Audio Lists
+						</td>
+					</tr>
+					<tr>
+						<td onclick="onAudioPlay('data/AudioTest.ogg')" style="cursor:pointer">
+							Audio 1
+						</td>
+					</tr>
+					<tr>
+						<td onclick="onAudioPlay('data/Forest-Swords.mp3')" style="cursor:pointer">
+							Audio 2
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<audio id="audioTag" controls>
+					<source id="audioSource" src="data/AudioTest.ogg" type="audio/ogg">
+				</audio>
+				<br>
+				<span id="spnAudioFile"></span>
+			</td>
+		</tr>
+
+	</table>
+	<script type="text/javascript">
+		function onAudioPlay(audioFilename){
+			document.getElementById('spnAudioFile').innerHTML = audioFilename;
+			document.getElementById('audioSource').src = audioFilename;
+			document.getElementById('audioTag').load();
+			document.getElementById('audioTag').play();
+		}
+		onAudioPlay('data/Forest-Swords.mp3');
+	</script>
+</body>
+</html>

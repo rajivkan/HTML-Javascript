@@ -1,0 +1,17 @@
+@font-face {
+	    font-family: sansatioFont;
+	    src: url(../fonts/sansation_light.woff);
+	}
+
+	@font-face {
+	    font-family: sansatioFont;
+	    src: url(../fonts/sansation_bold.woff);
+	    font-weight: bold;
+	}
+	body{
+		font-family: Arial;
+		
+	}
+	.custom-font{
+		font-family: sansatioFont;
+	}
