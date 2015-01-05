@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function onClick(){
+			document.getElementById("div1").innerHTML = "This is a first javascript content";
+		}
+
+		function onGetDataEvent(){
+			alert(document.getElementById("div1").innerHTML);
+		}
+
+		function onGetDivByTagName(){
+			alert(document.getElementsByTagName("button").length);
+		}
+
+		function onGetDivByClassName(){
+			alert(document.getElementsByClassName("abc").length);
+		}
+
+		setTimeout(function(){
+			//alert("Hi")
+		}, 5000) // 1000 = 1 second
+
+		var array = ["On.png", "Off.png", "apple.jpeg"]
+		var i = 0;
+		setInterval(function(){
+			if(i >= array.length){
+				i = 0;
+			}
+			document.getElementById("img1").src = "images/"+array[i];
+			i++;
+			// if(document.getElementById("img1").src.match("On.png")){
+			// 	document.getElementById("img1").src = "images/Off.png";
+			// }
+			// else{
+			// 	document.getElementById("img1").src = "images/On.png";
+			// }
+				
+		}, 2000);
+
+		/* comment 1
+		 comment 2
+		 comment 3 */
+	</script>
+</head>
+<body>
+	<div id="div1" class="abc"> This is default text</div>
+	<div id="div1" class="abc"></div>
+	<button onClick="onClick()" class="abc">Click Me</button>
+
+	<button onclick="onGetDataEvent()">Get Div Data</button>
+
+	<button onclick="onGetDivByTagName()">Get Divs by Tag Name</button>
+
+	<button onclick="onGetDivByClassName()">Get Divs by Class Name</button>
+
+	<img id="img1" src="images/Off.png">
+</body>
+</html>
