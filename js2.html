@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function sumDecimalValue(){
+			var num1 = parseFloat(document.getElementById("txt1").value);
+			var num2 = parseFloat(document.getElementById("txt2").value);
+			var result = num1 / num2;
+			document.getElementById("txtResult").value = result;
+		}
+
+		function sumIntValue(){
+			var num1 = parseInt(document.getElementById("txt3").value);
+			var num2 = parseInt(document.getElementById("txt4").value);
+			var result = num1 + num2;
+			document.getElementById("txtResult2").value = result;
+		}
+
+		var num1 = 4.9;
+		var num2 = "6";
+		var num3 = 2;
+
+		//alert(typeof num2)
+
+		//alert(num1 + (num2 + num3))
+
+		var number1;
+		var number2;
+		var operator;
+		function onEquelTo(){
+			if(operator == "+"){
+				document.getElementById("txtResultCal").value = number1 + number2;
+				operator = null;
+			}
+		}
+
+		function getValue(btnType){
+			if(!operator)
+				number1 = parseInt(btnType.innerHTML);
+			else
+				number2 = parseInt(btnType.innerHTML);
+		}
+
+		function onSum(){
+			operator = "+";
+		}
+	</script>
+	<style type="text/css">
+		body{
+			color: #ff00ff;
+		}
+		.red-color{
+			color: #ff0000;
+		}
+	</style>
+</head>
+<body>
+
+	Number 1: <input id="txt1">
+	
+	<label class="red-color">Number 2:</label> <input id="txt2"> 
+
+	Result:
+	<input id="txtResult" readonly="readonly">
+
+	<button id="btnSum" onclick="sumDecimalValue()">Sum</button>
+
+	<br><br>
+
+	Number 1: <input id="txt3">
+	
+	Number 2: <input id="txt4"> 
+
+	Result:
+	<input id="txtResult2" readonly="readonly">
+
+	<button id="btnSum2" onclick="sumIntValue()">Sum</button>
+<br><br>
+	<table style="width:280px">
+		<tr>
+			<td>
+				Result:
+			</td>
+			<td colspan="2">
+				<input id="txtResultCal" readonly="readonly">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="getValue(this)">0</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">1</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">2</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="getValue(this)">3</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">4</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">5</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="getValue(this)">6</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">7</button>
+			</td>
+			<td>
+				<button onclick="getValue(this)">8</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="getValue(this)">9</button>
+			</td>
+			<td>
+				<button onclick="onEquelTo()">=</button>
+			</td>
+			<td>
+				<button onclick="onSum()">+</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button>-</button>
+			</td>
+			<td>
+				<button>*</button>
+			</td>
+			<td>
+				<button>/</button>
+			</td>
+		</tr>
+	</table>
+	
+
+</body>
+</html>
