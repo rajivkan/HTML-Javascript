@@ -16,9 +16,9 @@
 			document.getElementById("txtResult2").value = result;
 		}
 
-		var num1 = 4.9;
-		var num2 = "6";
-		var num3 = 2;
+		// var num1 = 4.9;
+		// var num2 = "6";
+		// var num3 = 2;
 
 		//alert(typeof num2)
 
@@ -34,23 +34,27 @@
 			}
 		}
 
-		function getValue(btnType){
+		function getValue(buttonCal){
 			if(!operator)
-				number1 = parseInt(btnType.innerHTML);
+				number1 = parseInt(buttonCal.innerHTML);
 			else
-				number2 = parseInt(btnType.innerHTML);
+				number2 = parseInt(buttonCal.innerHTML);
 		}
 
 		function onSum(){
 			operator = "+";
 		}
 	</script>
-	<style type="text/css">
+	<style>
 		body{
 			color: #ff00ff;
 		}
 		.red-color{
 			color: #ff0000;
+		}
+
+		table, tr, td{
+			border: 1px solid red;
 		}
 	</style>
 </head>
@@ -87,13 +91,13 @@
 		</tr>
 		<tr>
 			<td>
-				<button onclick="getValue(this)">0</button>
+				<button class="btn" onclick="getValue(this)">0</button>
 			</td>
 			<td>
-				<button onclick="getValue(this)">1</button>
+				<button class="btn" onclick="getValue(this)">1</button>
 			</td>
 			<td>
-				<button onclick="getValue(this)">2</button>
+				<button class="btn" onclick="getValue(this)">2</button>
 			</td>
 		</tr>
 		<tr>
