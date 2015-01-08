@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function onLoad(){
+			var btn = document.getElementById("btnStart");
+			btn.style.fontSize = "20px";
+			btn.style.color = "#ff0000";
+			var myVar;
+			document.getElementById("btnStart").onclick = function(){
+				myVar=setInterval(function(){myTimer()},1000);
+			}
+
+			function myTimer() {
+			    var d = new Date();
+			    document.getElementById("p1").innerHTML = d;
+			}
+		}
+	</script>
+</head>
+<body onload="onLoad()">
+	<p id="p1"></p>
+	<button id="btnStart">Start Timer</button><br>
+	<button id="btnStop" onclick="clearInterval(myVar)">Stop Timer</button>
+
+
+</body>
+</html>
