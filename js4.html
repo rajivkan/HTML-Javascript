@@ -4,23 +4,54 @@
 	
 </head>
 <body>
+	for loop
 	<div id="div1">
+
+	</div>
+<br>
+while loop
+	<div id="div2">
+
+	</div>
+
+	do while loop
+	<div id="div3">
 
 	</div>
 </body>
 <script type="text/javascript">
-	for(var i = 10; i >= 1; i--){
-		if(i == 5){ break;}
-		document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + i + "<br>";
-	}
+	// for(var i = 10; i >= 1; i--){
+	// 	if(i == 5){ break;}
+	// 	document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + i + "<br>";
+	// }
 
 	var arrayData = ["1", "2", "3", "30", "16", "20"];
+	// for(var i = 0; i < arrayData.length; i++){
+	// 	if(arrayData[i] == "30"){
+	// 		console.log("index of 30: "+ i);
+	// 		break;
+	// 	}
+	// }
+
 	for(var i = 0; i < arrayData.length; i++){
-		if(arrayData[i] == "30"){
-			console.log("index of 30: "+ i);
-			break;
-		}
+		document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + arrayData[i] + "<br>";
 	}
+
+	var i = 0;
+	while(arrayData[i]){
+		i++;
+		if(i == 3) {
+			continue;
+		}
+		document.getElementById("div2").innerHTML = document.getElementById("div2").innerHTML + arrayData[i-1] + "<br>";
+	}
+
+	var i = 0;
+	do{
+		document.getElementById("div3").innerHTML = document.getElementById("div3").innerHTML + arrayData[i] + "<br>";
+		i++;
+	}while(i<arrayData.length);
+
 </script>
 </html>
 
