@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function onBodyLoad(){
+			
+			function primeNumber(minNumber, maxNumber){
+				for(var i=minNumber; i <= maxNumber; i++){
+					if(isPrimeNumber(i))  {
+						document.getElementById("divPrime").innerHTML = document.getElementById("divPrime").innerHTML + i + "<br>";
+					}
+				}
+			}
+
+			function isPrimeNumber(num){
+				if(num < 2) return false;
+				for(var i=2; i < num; i++){
+					if(num%i==0)
+	            		return false;
+				}
+				return true;
+			}
+
+			primeNumber(1, 10);
+		}
+
+		
+	</script>	
+</head>
+
+<body onload="onBodyLoad()">
+	<div id="divPrime">
+	</div>
+</body>
+
+</html>

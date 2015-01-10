@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function onBodyLoad(){
+			
+			for(var row=1; row<=5;row++){
+				for(var col=1; col <= row; col++){
+					document.getElementById("divStar").innerHTML = document.getElementById("divStar").innerHTML + "*";
+				}
+
+				document.getElementById("divStar").innerHTML = document.getElementById("divStar").innerHTML + "<br>";
+			}
+			
+		}
+
+		
+	</script>	
+</head>
+
+<body onload="onBodyLoad()">
+	<div id="divStar">
+	</div>
+</body>
+
+</html>
+
+<!--
+1
+22
+333
+4444
+55555
+
+
+1
+33
+555
+7777
+99999
+
+2
+44
+666
+8888
+
+	-->
