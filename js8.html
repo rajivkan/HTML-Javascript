@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+		table{
+			width: 100%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function resetForm(){
+			// for(var i=0; i < document.getElementsByClassName("text-box").length; i++){
+			// 	document.getElementsByClassName("text-box")[i].value = "";
+			// }
+
+			document.getElementById("form1").reset();
+		}
+
+		function submitForm(){
+			if(document.getElementById("txtName").value == ""){
+				alert("Name is required.");
+				document.getElementById("txtName").focus();
+				return false;
+			}
+
+			if(document.getElementById("txtEmail").value == ""){
+				alert("Email is required.");
+				document.getElementById("txtEmail").focus();
+				return false;
+			}
+
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			if (!filter.test(document.getElementById("txtEmail").value)) {
+		    	alert('Please provide a valid email address');
+		    	document.getElementById("txtEmail").focus();
+				return false;
+		    }
+
+		    if(document.getElementById("txtMobile").value == ""){
+				alert("Mobile is required.");
+				document.getElementById("txtMobile").focus();
+				return false;
+			}
+
+			var mob = document.getElementById("txtMobile").value.match(/\d/g);
+			if(mob == null || mob.join("").length < 9){
+				alert("Please provide a valid mobile number.");
+				document.getElementById("txtMobile").focus();
+				return false;
+			}
+
+			if(document.getElementById("txtPassword").value == ""){
+				alert("Password is required.");
+				document.getElementById("txtPassword").focus();
+				return false;
+			}
+
+			//
+
+			insertData();
+
+			resetForm();
+		}
+
+		var arrayData = [];
+		function insertData(){
+			debugger;
+			var objForm = {};
+			objForm.name = document.getElementById("txtName").value;
+			objForm.email = document.getElementById("txtEmail").value;
+			objForm.password = document.getElementById("txtPassword").value;
+			objForm.mobile = document.getElementById("txtMobile").value;
+			arrayData.push(objForm);
+
+		}
+	</script>
+</head>
+<body>
+	<form id="form1">
+	<table>
+		<tr>
+			<td style="width:120px">
+				Name:
+			</td>
+			<td>
+				<input id="txtName" class="text-box">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Email:
+			</td>
+			<td>
+				<input id="txtEmail" class="text-box">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Password:
+			</td>
+			<td>
+				<input id="txtPassword" class="text-box">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				Mobile:
+			</td>
+			<td>
+				<input id="txtMobile" class="text-box">
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<input type="button" onclick="resetForm()" value="Reset">
+			</td>
+			<td>
+				<input type="button" onclick="submitForm()" value="Submit">
+			</td>
+		</tr>
+	</table>
+
+	<table id="tblData">
+
+	</table>
+	</form>
+</body>
+</html>
