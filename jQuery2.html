@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.text-class{
+			color: #ff0000;
+		}
+	</style>
+	<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $("#btn").click(function(){
+			// 	alert("call");
+			// })
+
+			// document.getElementById("btn").onclick = function(){
+			// 	alert("call 1");
+			// }
+
+			// var input1 = document.createElement("input");
+			// input1.id = "txt";
+			// input1.className = "text-class";
+			// input1.value = "Javascript";
+			// document.getElementById("bodyTag").appendChild(input1);
+
+			var div1 = $("<div></div>");
+			div1.attr("id", "divContainer");
+			div1.html("DIV 1");
+
+			$("#bodyTag").append(div1);
+
+			var input2 = $("<input></input>");
+			input2.attr("id", "txt1");
+			input2.val("JQuery 2");
+			//input2.attr("class", "text-class");
+			input2.addClass("text-class");
+			div1.append(input2);
+
+			var img1 = $("<img></img>");
+			img1.attr("src", "images/apple.jpeg");
+			div1.append(img1);
+
+			img1.click(function(){
+				alert("Image clicked");
+			});
+		});
+	</script>
+</head>
+<body id="bodyTag">
+	<!-- <input id="txt" class="text-class" value="jQuery">
+	<button id="btn">Click Me</button> -->
+</body>
+	
+</html>
