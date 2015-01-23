@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	
+</head>
+	<body ng-app="appName">
+		<div ng-controller="initCtrl">
+			<div>
+		 	<p>First Name: <input id="txt" ng-model="txtFirstName"></p>
+		 	<p>Last Name: <input id="txt" ng-model="txtLastName"></p>
+		 	<span>{{txtFirstName}} {{txtLastName}}</span>
+		 	<button onclick="callMe()">Click Me</button>
+		 	<button ng-click="callMe1()">Click Me</button>
+		</div>
+
+		<div>
+			{{txtFirstName}}
+		</div>
+		</div>
+		
+
+		<script type="text/javascript">
+			var ngModule = angular.module("appName", []);
+			ngModule.controller("initCtrl", ["$scope", function($scope){
+				$scope.txtFirstName = 'Test';
+				$scope.txtLastName = "Kumar"
+				$scope.callMe1 = function(){
+					alert("called me by angular");
+				}
+			}]);
+
+			ngModule.controller("initCtrl1", ["$scope", function($scope){
+				$scope.txtFirstName1 = 'Test';
+			}]);
+
+
+			// function callMe(){
+			// 	alert('call');
+			// }
+
+			var callMe = function(){
+				alert('call');
+			}
+
+			// function callMe1(){
+			// 	alert('call');
+			// }
+		</script>
+	</body>
+</html>
