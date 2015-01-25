@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<style type="text/css">
+		table, tr, td{
+			border: 1px #333 solid;
+		}
+	</style>
+</head>
+<script type="text/javascript"></script>
+<body ng-app="testApp">
+
+	<div ng-controller="studentController">
+		<!-- <span ng-repeat="student in studentData">{{student}}<br></span> -->
+		<input txt="txtName" ng-model="studentName">
+		<table ng-repeat="x in studentData | filter:studentName | orderBy:'address':true" style="width:80%;margin-top: 10px">
+			<tr>
+				<td>
+					{{x.name | uppercase}} , {{x.address | lowercase}}
+				</td>
+			</tr>
+
+			<!-- <tr>
+				<td ng-repeat="x in [1, 2, 3, 4, 5, 6, 7, 8 ,9, 10]">
+					{{x}}
+				</td>
+			</tr> -->
+
+		</table>
+
+	</div>
+</body>
+<script type="text/javascript">
+	
+	var ngModule = angular.module("testApp", []);
+
+	ngModule.controller("studentController", ["$scope", function($scope){
+		$scope.studentData = [{name: "Ankit", address: "Address 1"}, {name: "Ram", address: "Address 2"}, {name: "Shyam", address: "Address 3"},
+								{name: "Rajesh", address: "Address 4"}, {name: "Jayesh", address: "Address 5"}];
+	}])
+
+</script>
+</html>

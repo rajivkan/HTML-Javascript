@@ -7,19 +7,17 @@
 	<body ng-app="appName">
 		<div ng-controller="initCtrl">
 			<div>
-		 	<p>First Name: <input id="txt" ng-model="txtFirstName"></p>
-		 	<p>Last Name: <input id="txt" ng-model="txtLastName"></p>
-		 	<span>{{txtFirstName}} {{txtLastName}}</span>
-		 	<button onclick="callMe()">Click Me</button>
-		 	<button ng-click="callMe1()">Click Me</button>
+			 	<p>First Name: <input id="txt" ng-model="txtFirstName"></p>
+			 	<p>Last Name: <input id="txt" ng-model="txtLastName"></p>
+			 	<span>{{txtFirstName}} {{txtLastName}}</span>
+			 	<button onclick="callMe()">Click Me</button>
+			 	<button ng-click="callMe1()">Click Me</button>
+			</div>
 		</div>
-
-		<div>
-			{{txtFirstName}}
+		<div ng-controller="initCtrl2">
+			{{message}}
 		</div>
-		</div>
-		
-
+		message: {{message}}
 		<script type="text/javascript">
 			var ngModule = angular.module("appName", []);
 			ngModule.controller("initCtrl", ["$scope", function($scope){
@@ -30,8 +28,8 @@
 				}
 			}]);
 
-			ngModule.controller("initCtrl1", ["$scope", function($scope){
-				$scope.txtFirstName1 = 'Test';
+			ngModule.controller("initCtrl2", ["$scope", function(scopeModel){
+				scopeModel.message = 'Angular Js example';
 			}]);
 
 

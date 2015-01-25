@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+	
+</head>
+	<body ng-app="">
+		<div ng-controller="initCtrl">
+			<div>
+		 	<p>First Name: <input id="txt" ng-model="txtFirstName"></p>
+		 	<p>Last Name: <input id="txt" ng-model="txtLastName"></p>
+		 	<p>Sex: Male <input type="radio" name="sex" ng-checked="{{Male}}"  ng-click="onChangeSex(1)">  
+		 		Female <input type="radio" name="sex" ng-checked="{{Female}}" ng-click="onChangeSex(2)">
+		 	</p>
+		 	<span>{{txtFirstName}} {{txtLastName}}</span>
+		 	<button onclick="callMe()">Click Me</button>
+		 	<button ng-click="callMe1()">Click Me</button>
+		</div>
+
+		<div>
+			{{txtFirstName}}
+		</div>
+		</div>
+		
+
+		<script type="text/javascript">
+
+			function initCtrl($scope){
+				$scope.txtFirstName = 'Test';
+				$scope.txtLastName = "Kumar"
+				$scope.Male = true;
+				$scope.Female = false;
+				$scope.callMe1 = function(){
+					alert("called me by angular");
+				}
+
+				$scope.onChangeSex = function(sex){
+					if(sex == 1){
+						$scope.Male = true;
+						$scope.Female = false;
+					}
+					else{
+						$scope.Female = true;
+						$scope.Male = false;
+					}
+						
+				}
+			}
+
+			var callMe = function(){
+				alert('call');
+			}
+		</script>
+	</body>
+</html>

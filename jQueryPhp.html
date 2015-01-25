@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>Welcome HTML</title>
+<head>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/lib/jquery-1.11.2.js"></script>
+	<script type="text/javascript">
+		
+		function onSubmit(){
+			var urlLogin = "http://localhost/test/test.php?name="+ $("#txtNm").val()+"&email="+$("#txtEmail").val();
+			$.ajax({url: urlLogin, method: "GET", data: {name:"test"}}).
+			done(function(result){
+				alert("success");
+				window.location.href = "angular.html";
+			}).
+			error(function(error){
+				alert("error");
+			});
+		}
+	</script>
+
+</head>
+<body>
+	
+		<h2>Login Form</h2>
+		<table style="width:500px">
+			<tr>
+				<td style="width:120px">Username: </td>
+				<td><input name="name" id="txtNm"></td>
+			</tr>
+
+			<tr>
+				<td>Email: </td>
+				<td><input name="email" id="txtEmail"></td>
+			</tr>
+
+			<tr>
+				<td><input type="button" value="Login" onclick="onSubmit()"/></td>
+			</tr>
+		</table>
+</body>
+</html>
