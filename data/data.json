@@ -1,0 +1,32 @@
+{
+
+	"student":[
+		{
+			"studentId": 1,
+			"name": "Name 1",
+			"address": "Address 1",
+			"courses": [
+				"Computer Science",
+				"Maths"
+			]
+		},
+		{
+			"studentId": 2,
+			"name": "Name 2",
+			"address": "Address 2",
+			"courses": [
+				"Science",
+				"Maths"
+			]
+		},
+		{
+			"studentId": 3,
+			"name": "Name 3",
+			"address": "Address 3",
+			"courses": [
+				"History",
+				"Science"
+			]
+		}
+	]
+}

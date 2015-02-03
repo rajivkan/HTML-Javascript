@@ -20,6 +20,10 @@
 		    function($routeProvider) {
 		        $routeProvider
 		            .when('/', {
+		                templateUrl: 'components/login.html',
+		                controller: 'loginViewCtrl'
+		            })
+		            .when('/home', {
 		                templateUrl: 'template/home.html',
 		                controller: 'homeViewCtrl'
 		            })
@@ -31,20 +35,51 @@
 		                templateUrl: 'template/contact.html',
 		                controller: 'contactViewCtrl'
 		            })
+		            .when('/student', {
+		                templateUrl: 'template/studentlist.html',
+		                controller: 'studentViewCtrl'
+		            })
+
 		           }
 		    ]);
 
 		angularApp.controller("homeViewCtrl", ["$scope", function(scope1){
+			$("#navSection").show();
 			scope1.message = "Welcome to Angular";
 			scope1.loginLabel = "Login Form";
 		}])
 
 		angularApp.controller("aboutViewCtrl", ["$scope", function($scope){
+			$("#navSection").show();
 			$scope.loginLabel = "Login";
 		}]);
 
-		angularApp.controller("contactViewCtrl", ["$scope", function($scope){
 
+		angularApp.controller("studentViewCtrl", ["$scope", "$http", function($scope, $http){
+			$("#navSection").show();
+			$http.get("data/data.json")
+			.success(function(res){
+				$scope.students = res.student;
+			})
+			.error(function(err){
+				alert("Unable to load the student data.");
+			})
+		}]);
+
+		angularApp.controller("contactViewCtrl", ["$scope", function($scope){
+			$("#navSection").show();
+		}]);
+
+		angularApp.controller("loginViewCtrl", ["$scope", function($scope){
+			$("#navSection").hide();
+			$scope.login = function(){
+				if($("#txtUsername").val() == "admin" && $("#txtPassword").val() == "password"){
+					window.location.href = "#/home";
+				}
+				else{
+					alert("Username and Password is incorrect.")
+				}
+			}
 		}]);
 
 		angularApp.directive("login", [function(){
@@ -73,13 +108,16 @@
 		</tr>	
 
 		<tr id="mainSection">
-			<td style="width:150px; vertical-align:top">
-				<a href="#/">Home</a>
+			<td style="width:150px; vertical-align:top;display:none" id="navSection">
+				<a href="#/home">Home</a>
 				<br>
 				<a href="#/about1">About</a>
 				<br>
 				<a href="#/contact1">Contact</a>
-				
+				<br>
+				<a href="#/student">Student List</a>
+				<br>
+				<a href="#/">Logout</a>
 			</td>
 			<td style="vertical-align:top">
 				<div id="mainDiv" ng-view></div>
