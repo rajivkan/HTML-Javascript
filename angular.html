@@ -12,91 +12,10 @@
 		}
 
 	</style>
-	<script type="text/javascript">
-
-		var angularApp = angular.module("appName", ["ngRoute"]);
-
-		angularApp.config(['$routeProvider',
-		    function($routeProvider) {
-		        $routeProvider
-		            .when('/', {
-		                templateUrl: 'components/login.html',
-		                controller: 'loginViewCtrl'
-		            })
-		            .when('/home', {
-		                templateUrl: 'template/home.html',
-		                controller: 'homeViewCtrl'
-		            })
-		            .when('/about1', {
-		                templateUrl: 'template/about.html',
-		                controller: 'aboutViewCtrl'
-		            })
-		            .when('/contact1', {
-		                templateUrl: 'template/contact.html',
-		                controller: 'contactViewCtrl'
-		            })
-		            .when('/student', {
-		                templateUrl: 'template/studentlist.html',
-		                controller: 'studentViewCtrl'
-		            })
-
-		           }
-		    ]);
-
-		angularApp.controller("homeViewCtrl", ["$scope", function(scope1){
-			$("#navSection").show();
-			scope1.message = "Welcome to Angular";
-			scope1.loginLabel = "Login Form";
-		}])
-
-		angularApp.controller("aboutViewCtrl", ["$scope", function($scope){
-			$("#navSection").show();
-			$scope.loginLabel = "Login";
-		}]);
-
-
-		angularApp.controller("studentViewCtrl", ["$scope", "$http", function($scope, $http){
-			$("#navSection").show();
-			$http.get("data/data.json")
-			.success(function(res){
-				$scope.students = res.student;
-			})
-			.error(function(err){
-				alert("Unable to load the student data.");
-			})
-		}]);
-
-		angularApp.controller("contactViewCtrl", ["$scope", function($scope){
-			$("#navSection").show();
-		}]);
-
-		angularApp.controller("loginViewCtrl", ["$scope", function($scope){
-			$("#navSection").hide();
-			$scope.login = function(){
-				if($("#txtUsername").val() == "admin" && $("#txtPassword").val() == "password"){
-					window.location.href = "#/home";
-				}
-				else{
-					alert("Username and Password is incorrect.")
-				}
-			}
-		}]);
-
-		angularApp.directive("login", [function(){
-			return {
-				restrict: "C", //"E A C"
-				templateUrl: "components/login.html"
-			}
-		}]);
-
-		angularApp.directive("login2", [function(){
-			return {
-				restrict: "C", //"E A C"
-				template: "<div><h2>{{loginLabel}}:</h2><table style='width:500px'><tr><td>Username:</td><td><input id='txtUsername'></td></tr><tr><td>Password:</td><td><input id='txtPassword'></td></tr><tr><td></td><td><input type='submit' value='Login'></td></tr></table></div>"
-			}
-		}]);
-
-	</script>
+	<script type="text/javascript" src="js/angular/app.js"></script>
+	<script type="text/javascript" src="js/angular/controllers.js"></script>
+	<script type="text/javascript" src="js/angular/controllers1.js"></script>
+	<script type="text/javascript" src="js/angular/directives.js"></script>
 </head>
 
 <body ng-app="appName">
